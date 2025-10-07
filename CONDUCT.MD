@@ -179,3 +179,4 @@ This Code applies to all interactions within the 305Soft project—meetings, cla
 This Code of Conduct is adapted from the [Contributor Covenant, version 2.1](https://www.contributor-covenant.org/version/2/1/code_of_conduct.html) and inspired by the **Scrum Values** and **Google’s team collaboration principles** emphasizing shared accountability, inclusion, and transparency.  
  Community Impact Guidelines were inspired by [Mozilla’s Code of Conduct Enforcement Ladder](https://github.com/mozilla/diversity).
 
+![Nathan Lannon](/assets/images/NathanLannon_Signature.png)
