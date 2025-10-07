@@ -180,3 +180,4 @@ This Code of Conduct is adapted from the [Contributor Covenant, version 2.1](htt
  Community Impact Guidelines were inspired by [Mozilla’s Code of Conduct Enforcement Ladder](https://github.com/mozilla/diversity).
 
 ![Nathan Lannon](/assets/images/NathanLannon_Signature.png)
+![Adrian Mora](/assets/images/AdrianMora_signature.png)
