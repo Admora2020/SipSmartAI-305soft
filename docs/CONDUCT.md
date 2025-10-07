@@ -181,4 +181,4 @@ This Code of Conduct is adapted from the [Contributor Covenant, version 2.1](htt
 
 ![Nathan Lannon](/assets/images/NathanLannon_Signature.png)
 ![Adrian Mora](/assets/images/signature.png)
-![carlos leon](/assets/images/signature.png)
+![carlos leon](/assets/images/Clsignature.png)
