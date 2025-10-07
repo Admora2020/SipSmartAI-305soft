@@ -1,84 +1,145 @@
-
-# Contributor Covenant Code of Conduct
+# 305Soft Team Code of Conduct
 
 ## Our Pledge
 
-We as members, contributors, and leaders pledge to make participation in our community a harassment-free experience for everyone, regardless of age, body size, visible or invisible disability, ethnicity, sex characteristics, gender identity and expression, level of experience, education, socio-economic status, nationality, personal appearance, race, caste, color, religion, or sexual identity and orientation.
+As members, contributors, and leaders of this class project team, we pledge to create a respectful, inclusive, and productive environment where every member feels valued and heard.
 
-We pledge to act and interact in ways that contribute to an open, welcoming, diverse, inclusive, and healthy community.
+We are committed to a harassment-free experience for everyone, regardless of age, body size, visible or invisible disability, ethnicity, sex characteristics, gender identity or expression, level of experience, education, socioeconomic status, nationality, appearance, race, caste, color, religion, or sexual identity and orientation.
+
+We will act and interact in ways that build trust, collaboration, and mutual learning throughout the 5–8 week project.
+
+---
 
 ## Our Standards
 
-Examples of behavior that contributes to a positive environment for our community include:
+### Positive Behaviors
 
-* Demonstrating empathy and kindness toward other people
-* Being respectful of differing opinions, viewpoints, and experiences
-* Giving and gracefully accepting constructive feedback
-* Accepting responsibility and apologizing to those affected by our mistakes, and learning from the experience
-* Focusing on what is best not just for us as individuals, but for the overall community
+- Demonstrating empathy, kindness, and patience toward others  
+- Respecting differing opinions, viewpoints, and working styles  
+- Offering constructive feedback and accepting it graciously  
+- Taking responsibility for mistakes and working to make them right  
+- Staying focused on team goals and project outcomes rather than personal preferences  
 
-Examples of unacceptable behavior include:
+### Unacceptable Behaviors
 
-* The use of sexualized language or imagery, and sexual attention or advances of any kind
-* Trolling, insulting or derogatory comments, and personal or political attacks
-* Public or private harassment
-* Publishing others' private information, such as a physical or email address, without their explicit permission
-* Other conduct which could reasonably be considered inappropriate in a professional setting
+- Disrespectful, demeaning, or exclusionary language or actions  
+- Harassment in any form, public or private  
+- Trolling, personal attacks, or negative comments toward individuals or groups  
+- Sharing private information without consent  
+- Disregarding agreed-upon team norms or project expectations  
 
-## Enforcement Responsibilities
+---
 
-Community leaders are responsible for clarifying and enforcing our standards of acceptable behavior and will take appropriate and fair corrective action in response to any behavior that they deem inappropriate, threatening, offensive, or harmful.
+## 305Soft Policy: Technology Use
 
-Community leaders have the right and responsibility to remove, edit, or reject comments, commits, code, wiki edits, issues, and other contributions that are not aligned to this Code of Conduct, and will communicate reasons for moderation decisions when appropriate.
+To maintain engagement and respect during all meetings and collaborative sessions, **no distracted use of technology** (e.g., texting, scrolling, unrelated device use) is allowed.  
+Phones should remain away or on silent unless directly relevant to the project task at hand.  
+Violations will result in a gentle reminder, and continued misuse may affect participation credit.
+
+---
+
+## Decision-Making
+
+Our team will use **consensus** whenever possible, ensuring every voice is heard and considered.  
+When consensus cannot be reached, a **majority vote** will decide the matter.  
+Leaders or designated facilitators will ensure discussions stay balanced and solution-focused.
+
+---
+
+## Attendance
+
+### Expectations
+
+- Members must attend all scheduled team meetings, whether virtual or in person.  
+- Notify the team at least **24 hours in advance** if you cannot attend (unless due to an emergency).  
+- Three or more unexcused absences may result in a review of your participation grade or reassignment of tasks.
+
+### Making Up Missed Meetings
+
+- Review meeting notes and action items shared after each session.  
+- Communicate with a teammate to clarify next steps and deliverables.  
+- Complete any missed work within **48 hours** of the meeting.
+
+---
+
+## Assignments
+
+- Tasks will be assigned based on member strengths, interests, and availability.  
+- Members are expected to complete work on time and with care.  
+
+If a member submits poor-quality or incomplete work, the team will:
+
+1. Offer private feedback and guidance for improvement.  
+2. Redistribute tasks temporarily if the issue continues.  
+3. Document repeated issues for the instructor if unresolved.
+
+---
+
+## Participation and Collaboration
+
+- Communication will occur through agreed-upon channels (e.g., GroupMe, Slack, Discord, or email).  
+- Each member is encouraged to contribute ideas and feedback consistently.  
+- To ensure full participation, roles (e.g., note-taker, presenter, coder, designer) will **rotate weekly**.  
+- Team members will honor one another’s unique strengths and encourage leadership from all.
+
+---
+
+## Meeting Times and Locations
+
+- Meeting times and locations will be chosen based on collective availability via a shared poll.  
+- Virtual meetings will be held on the team’s designated platform (e.g., Zoom, Google Meet, or Discord).  
+- In-person meetings will begin promptly; remote members must log in **5 minutes early** to ensure setup.
+
+---
+
+## Agenda and Minutes / Notes
+
+- A rotating note-taker will document meeting minutes, including decisions, next steps, and assigned tasks.  
+- Notes will be shared in a shared document or group chat within **24 hours** after each meeting.  
+- The facilitator will confirm agenda items at the start of each meeting and summarize action items at the end.
+
+---
+
+## Promptness
+
+- Members are expected to arrive on time to all meetings and check-ins.  
+- Repeated lateness (3 or more times) without valid reason may result in reduced participation credit.  
+- If late, message the team before the meeting begins.
+
+---
+
+## Conversational Courtesies
+
+- Practice active listening and avoid interrupting others.  
+- Share airtime—no one voice should dominate the discussion.  
+- Stay on topic; gently redirect tangents back to project goals.  
+- Use “I” statements and express disagreements respectfully.  
+- Assume good intent, but also take responsibility for impact.
+
+---
+
+## Enforcement and Feedback
+
+- The team will address issues privately first, encouraging reflection and accountability.  
+- For ongoing or serious issues, a group discussion with the instructor may occur.  
+- Feedback will be given constructively and respectfully, focusing on behavior, not personality.  
+- Members should express how they prefer to receive feedback (verbally, in writing, etc.).  
+- All reports will remain confidential unless escalation is necessary.
+
+### Enforcement Responsibilities
+
+Community leaders (e.g., team lead, instructor) will clarify and enforce these standards fairly.  
+They may remove or edit contributions that violate this Code of Conduct and communicate reasons for doing so when appropriate.
+
+---
 
 ## Scope
 
-This Code of Conduct applies within all community spaces, and also applies when an individual is officially representing the community in public spaces. Examples of representing our community include using an official e-mail address, posting via an official social media account, or acting as an appointed representative at an online or offline event.
+This Code applies to all team activities—meetings, online communications, shared documents, and public representations of the project.
 
-## Enforcement
-
-Instances of abusive, harassing, or otherwise unacceptable behavior may be reported to the community leaders responsible for enforcement at [INSERT CONTACT METHOD]. All complaints will be reviewed and investigated promptly and fairly.
-
-All community leaders are obligated to respect the privacy and security of the reporter of any incident.
-
-## Enforcement Guidelines
-
-Community leaders will follow these Community Impact Guidelines in determining the consequences for any action they deem in violation of this Code of Conduct:
-
-### 1. Correction
-
-**Community Impact**: Use of inappropriate language or other behavior deemed unprofessional or unwelcome in the community.
-
-**Consequence**: A private, written warning from community leaders, providing clarity around the nature of the violation and an explanation of why the behavior was inappropriate. A public apology may be requested.
-
-### 2. Warning
-
-**Community Impact**: A violation through a single incident or series of actions.
-
-**Consequence**: A warning with consequences for continued behavior. No interaction with the people involved, including unsolicited interaction with those enforcing the Code of Conduct, for a specified period of time. This includes avoiding interactions in community spaces as well as external channels like social media. Violating these terms may lead to a temporary or permanent ban.
-
-### 3. Temporary Ban
-
-**Community Impact**: A serious violation of community standards, including sustained inappropriate behavior.
-
-**Consequence**: A temporary ban from any sort of interaction or public communication with the community for a specified period of time. No public or private interaction with the people involved, including unsolicited interaction with those enforcing the Code of Conduct, is allowed during this period. Violating these terms may lead to a permanent ban.
-
-### 4. Permanent Ban
-
-**Community Impact**: Demonstrating a pattern of violation of community standards, including sustained inappropriate behavior, harassment of an individual, or aggression toward or disparagement of classes of individuals.
-
-**Consequence**: A permanent ban from any sort of public interaction within the community.
+---
 
 ## Attribution
 
-This Code of Conduct is adapted from the [Contributor Covenant][homepage], version 2.1, available at [https://www.contributor-covenant.org/version/2/1/code_of_conduct.html][v2.1].
-
-Community Impact Guidelines were inspired by [Mozilla's code of conduct enforcement ladder][Mozilla CoC].
-
-For answers to common questions about this code of conduct, see the FAQ at [https://www.contributor-covenant.org/faq][FAQ]. Translations are available at [https://www.contributor-covenant.org/translations][translations].
-
-[homepage]: https://www.contributor-covenant.org
-[v2.1]: https://www.contributor-covenant.org/version/2/1/code_of_conduct.html
-[Mozilla CoC]: https://github.com/mozilla/diversity
-[FAQ]: https://www.contributor-covenant.org/faq
-[translations]: https://www.contributor-covenant.org/translations
+This document adapts the **Contributor Covenant, version 2.1**, customized for 305Soft project teams.  
+Community Impact Guidelines were inspired by **Mozilla’s Code of Conduct Enforcement Ladder**.
