@@ -3,10 +3,10 @@
 ## **Our Pledge**
 
 As members of the 305Soft project team, we pledge to create a collaborative, inclusive, and respectful environment throughout the 5–8 week development process.  
- We commit to ensuring that every contributor—regardless of experience, background, or identity—feels valued, supported, and heard.
+We commit to ensuring that every contributor—regardless of experience, background, or identity—feels valued, supported, and heard.
 
 We strive to make participation in our project a **harassment-free** and **growth-focused** experience for everyone.  
- This includes respecting all individuals regardless of age, body size, ability, ethnicity, gender identity or expression, level of experience, education, socioeconomic status, nationality, appearance, race, religion, or sexual orientation.
+This includes respecting all individuals regardless of age, body size, ability, ethnicity, gender identity or expression, level of experience, education, socioeconomic status, nationality, appearance, race, religion, or sexual orientation.
 
 We aim to work as a **Scrum team**, emphasizing transparency, communication, and continuous improvement over hierarchy or competition.
 
