@@ -14,11 +14,11 @@
   - Team Action: We’ll include a spending tracker in the app that shows weekly and monthly totals and estimated savings over time. The dashboard will visualize how cutting back on drinks saves money, and later we can connect this data with goals or positive feedback loops (like milestone rewards or alternative spending suggestions).
  
 - Observation 4:
-- Multiple people were concerned about remembering how much they drink.
-- Supporting Data:
-  - Question: “What challenges or concerns do you face when trying to keep track of your alcohol consumption, and how could an app make this easier for you?”
-  - Responses: “I always forget,” “how do i remember when i'm actively under the influence,” “Remembering to track it,” “remembering how much I drank,” etc…
-- Team Action: Implement notifications that are good at getting the user’s attention.
+  - Multiple people were concerned about remembering how much they drink.
+  - Supporting Data:
+    - Question: “What challenges or concerns do you face when trying to keep track of your alcohol consumption, and how could an app make this easier for you?”
+    - Responses: “I always forget,” “how do i remember when i'm actively under the influence,” “Remembering to track it,” “remembering how much I drank,” etc…
+  - Team Action: Implement notifications that are good at getting the user’s attention.
 
 - Observation 5:
   - Observation Statement:
