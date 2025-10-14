@@ -12,3 +12,10 @@
   - Many of our personas are motivated to track their alcohol spending, showing that financial awareness is a key reason people would use the app.
   - Supporting Data: Across 39 responses, budget tracking for alcohol spending was one of the most selected features, chosen by over 70% of respondents. Multiple participants specifically mentioned wanting to "see how much they have spent on alcohol" or to "add up how much people spend so they see what they could save." Even respondents who said they don’t drink noted that tracking spending would be "eye-opening for a lot of people."
   - Team Action: We’ll include a spending tracker in the app that shows weekly and monthly totals and estimated savings over time. The dashboard will visualize how cutting back on drinks saves money, and later we can connect this data with goals or positive feedback loops (like milestone rewards or alternative spending suggestions).
+ 
+- Observation 4:
+- Multiple people were concerned about remembering how much they drink.
+- Supporting Data:
+  - Question: “What challenges or concerns do you face when trying to keep track of your alcohol consumption, and how could an app make this easier for you?”
+  - Responses: “I always forget,” “how do i remember when i'm actively under the influence,” “Remembering to track it,” “remembering how much I drank,” etc…
+- Team Action: Implement notifications that are good at getting the user’s attention.
