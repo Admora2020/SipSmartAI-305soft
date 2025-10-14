@@ -19,3 +19,12 @@
   - Question: “What challenges or concerns do you face when trying to keep track of your alcohol consumption, and how could an app make this easier for you?”
   - Responses: “I always forget,” “how do i remember when i'm actively under the influence,” “Remembering to track it,” “remembering how much I drank,” etc…
 - Team Action: Implement notifications that are good at getting the user’s attention.
+
+- Observation 5:
+  - Observation Statement:
+    Most respondents have never tried tracking their alcohol consumption and are not interested in doing so.
+  - Supporting Data:
+    According to the survey, 71.8% of participants (28 out of 39) selected “No, and I'm not interested.”
+  - Team Action (if any):
+    Consider reducing focus on features related to alcohol tracking for uninterested users. Instead, explore educational or motivational strategies that could highlight the benefits of awareness and self-monitoring.
+
