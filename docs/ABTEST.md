@@ -1,4 +1,4 @@
-A/B Test Name: Start on InitialScreen vs Create Account (Nathan)
+1. A/B Test Name: Start on InitialScreen vs Create Account (Nathan)
 User Story Number: US1 Account Creation
 Metrics:
 - Adoption: signup conversion rate = CompleteSignUp / FirstAppOpen
@@ -71,4 +71,65 @@ notification_open
 drink_logged
 user_retained_7d
 notif_disabledapp_uninstall
+app_crash, anr_occurrence
+
+2. A/B Test Name: Multiple Profile Creation Screens vs One Consolidated Screen of Account Preferences (Kyle Mard)
+User Story Number: US1 Account Creation
+
+_Metrics_
+
+Adoption (primary):
+signup conversion rate = complete_signup / app_first_open
+
+Engagement:
+time to first value = time from app_first_open to first_drink_logged
+
+Task Success:
+funnel completion rate = initial_open → screen_view → start_signup → complete_signup
+
+Retention guardrail:
+1-day return rate for new users (user_retained_1d)
+
+Happiness proxy guardrail:
+uninstalls within 24 h and taps on Back/Close during signup (uninstall_event, tap_back_from_signup)
+
+Quality guardrail:
+crash-free sessions, ANR rate
+
+Hypothesis
+
+Consolidating the account creation process into a single screen will improve signup conversion by ≥ 10 % relative to the multi-screen flow by streamlining the experience and reducing friction—without lowering 1-day retention or increasing early uninstalls.
+
+Counter Risk
+
+A single screen may feel cluttered or overwhelming, leading to higher exit or uninstall rates. The experiment will determine which design provides the best balance between simplicity and usability.
+
+Experiment
+
+Target audience:
+only unauthenticated users on app open; exclude users who have already completed signup or restored a session.
+
+Split:
+50 / 50 using Firebase Remote Config with key signup_screen_mode.
+
+Variant A (control): multi-screen account creation flow
+Variant B (test): single consolidated account preferences screen
+
+Duration and power:
+run until each variant has at least n new users and the primary metric reaches 95 % confidence, minimum 7 days to cover weekday + weekend behavior.
+
+Events to Track in Firebase Analytics
+
+app_first_open
+
+screen_view (MultiScreenSignup, SingleScreenSignup)
+
+tap_signup_cta, tap_login_link, tap_back_from_signup
+
+start_signup, complete_signup
+
+onboarding_complete, first_drink_logged
+
+uninstall_event (or store analytics proxy)
+
 app_crash, anr_occurrence
