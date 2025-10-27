@@ -33,3 +33,42 @@ Success criteria:
 Variations:
 - Variant A: InitialScreen default
 - Variant B: Create Account default
+
+- User Story Number: US2 – Hydration Notifications (ADRIAN)
+
+Metrics:
+
+Engagement: average number of daily reminder interactions (notification_open / reminder_sent)
+
+Retention: 7-day return rate for new users (user_retained_7d)
+
+Task Success: drinks logged per user per day (drink_logged)
+
+Happiness proxy guardrail: uninstall within 24 h and notification opt-outs (notif_disabled)
+
+Quality guardrail: crash-free sessions, ANR rate
+
+Hypothesis:
+Increasing hydration reminder frequency from every 4 hours to every 2 hours will improve engagement and retention by reminding users more frequently to log drinks, helping them stay on track with hydration goals—without increasing uninstalls or opt-outs.
+
+Counter risk:
+Too-frequent notifications may annoy users, causing opt-outs or higher uninstall rates. The test will determine the optimal balance between helpfulness and annoyance.
+
+Experiment:
+Target audience: only users who have completed onboarding and enabled notifications. Exclude users who have already opted out or turned off reminders.
+
+Split: 50/50 using Firebase Remote Config with key reminder_interval_hours.
+
+Variant A (control): reminders every 4 hours
+
+Variant B (test): reminders every 2 hours with personalized message (e.g., “Hey Adrian, stay hydrated!”)
+
+Duration and power: run until each variant has at least n new active users and the primary metric reaches 95 percent confidence, minimum 14 days to cover weekday and weekend behavior.
+
+Events to track in Firebase Analytics:
+notification_sent
+notification_open
+drink_logged
+user_retained_7d
+notif_disabledapp_uninstall
+app_crash, anr_occurrence
