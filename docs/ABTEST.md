@@ -1,4 +1,4 @@
-A/B Test Name: Start on InitialScreen vs Create Account
+A/B Test Name: Start on InitialScreen vs Create Account (Nathan)
 User Story Number: US1 Account Creation
 Metrics:
 - Adoption: signup conversion rate = CompleteSignUp / FirstAppOpen
