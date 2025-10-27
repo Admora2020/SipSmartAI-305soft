@@ -1,3 +1,4 @@
 https://docs.google.com/presentation/d/1rP3eGytarHvbl0OrIeDNQBH0sy5661Su_t9DB1SBFFk/edit?usp=sharing
 * Metric 1: Engagement via how often users log drinks - implement backend code to track each users amount of drinks that they log and how regularly
 * Metric 2: New installs per month - Collected automatically from Firebase Analytics using the first_open event. Each time a new user opens the app for the first time, Firebase logs it.
+* Metric 3: CTR on the “Start Drinking Session” button – Track the number of users who tap the Start Session button compared to the number of users who view the Home screen. This will be collected using a Firebase custom event (start_session_click) and compared against Firebase’s automatically logged screen_view events for the Home screen to calculate the click-through rate.
