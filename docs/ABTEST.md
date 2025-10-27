@@ -133,3 +133,51 @@ onboarding_complete, first_drink_logged
 uninstall_event (or store analytics proxy)
 
 app_crash, anr_occurrence
+
+
+**A/B Test:** Drunk-Mode App Blocking Prompt — Before vs After First Drink Logged (Carlos)
+
+**User Story Number:** US13 — Golden Path (Drink Logging & Safety Controls)
+
+**Metrics**
+Primary:
+- Engagement: SmartBlock adoption = smartblock_enabled / drink_session_started
+- Task Success: % safe session setups
+- CTR: smartblock_toggle_on / smartblock_prompt_view
+
+Guardrails:
+- Retention: 1-day return (user_retained_1d)
+- Happiness: uninstall within 24h; smartblock_toggle_off
+- Quality: Crash-free sessions, ANR
+
+**Hypothesis**
+Prompting SmartBlock BEFORE the first drink increases adoption by ≥10% without increasing early uninstalls or hurting 1-day retention.
+
+**Experiment**
+Audience: users who haven’t enabled SmartBlock; first session on device.
+Split: 50/50 via Firebase Remote Config key `smartblock_prompt_timing`.
+Duration: ≥14 days, 95% confidence, includes weekday + weekend.
+
+Events:
+- start_session_click
+- smartblock_prompt_view
+- smartblock_toggle_on / smartblock_toggle_off
+- first_drink_logged
+- user_retained_1d
+- app_uninstall
+- Crash/ANR via Crashlytics
+
+Funnels:
+1) Start Session → Prompt → Enable → First Drink
+2) Start Session → First Drink → Prompt → Enable
+
+**Variations**
+- A (control): Prompt AFTER first drink
+- B (test): Prompt immediately on Start Session
+
+**Success Criteria**
+- +10% SmartBlock adoption (p<0.05)
+- Guardrails hold: ≤+2% absolute uninstall, no retention/crash regression
+
+**Rollout**
+If B wins and guardrails pass → set default to pre-drink prompt.
