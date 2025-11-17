@@ -78,14 +78,14 @@ GoRouter createRouter(AppStateNotifier appStateNotifier, [Widget? entryPage]) =>
       refreshListenable: appStateNotifier,
       navigatorKey: appNavigatorKey,
       errorBuilder: (context, state) => appStateNotifier.loggedIn
-          ? entryPage ?? InitialScreenWidget()
+          ? entryPage ?? GoldenPathWidget()
           : InitialScreenWidget(),
       routes: [
         FFRoute(
           name: '_initialize',
           path: '/',
           builder: (context, _) => appStateNotifier.loggedIn
-              ? entryPage ?? InitialScreenWidget()
+              ? entryPage ?? GoldenPathWidget()
               : InitialScreenWidget(),
         ),
         FFRoute(
