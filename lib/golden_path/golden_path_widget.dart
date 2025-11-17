@@ -184,6 +184,7 @@ class _GoldenPathWidgetState extends State<GoldenPathWidget> {
                                     snapshot.data!;
 
                                 return ListView.separated(
+                                  key: ValueKey('ListView_nlch'),
                                   padding: EdgeInsets.zero,
                                   shrinkWrap: true,
                                   scrollDirection: Axis.vertical,
@@ -219,6 +220,7 @@ class _GoldenPathWidgetState extends State<GoldenPathWidget> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             FlutterFlowIconButton(
+                              key: ValueKey('undoButton_64rw'),
                               borderColor: Color(0xFFFFFF00),
                               borderRadius: 20.0,
                               borderWidth: 2.0,
