@@ -53,7 +53,7 @@ void main() async {
         find.byKey(const ValueKey('Login-Password_38jn')), '123456');
     await tester.tap(find.byKey(const ValueKey('Login-Button_wyzq')));
     await tester.pumpAndSettle(const Duration(milliseconds: 3000));
-    expect(find.byKey(const ValueKey('addDrinkButton_cyik')), findsOneWidget);
+    expect(find.text('mL'), findsOneWidget);
   });
 }
 

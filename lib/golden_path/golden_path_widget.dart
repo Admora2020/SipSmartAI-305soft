@@ -325,7 +325,6 @@ class _GoldenPathWidgetState extends State<GoldenPathWidget> {
                                     padding: EdgeInsetsDirectional.fromSTEB(
                                         0.0, 25.0, 0.0, 0.0),
                                     child: FlutterFlowIconButton(
-                                      key: ValueKey('addDrinkButton_cyik'),
                                       borderRadius: 20.0,
                                       buttonSize: 74.7,
                                       icon: Icon(
