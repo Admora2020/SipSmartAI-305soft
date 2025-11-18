@@ -91,6 +91,7 @@ class _InitialScreenWidgetState extends State<InitialScreenWidget> {
                       mainAxisSize: MainAxisSize.max,
                       children: [
                         FFButtonWidget(
+                          key: ValueKey('Button_o6l2'),
                           onPressed: () async {
                             context.pushNamed(CreateAccountWidget.routeName);
                           },

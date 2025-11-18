@@ -184,6 +184,7 @@ class _CreateAccountWidgetState extends State<CreateAccountWidget> {
                                     child: Container(
                                       width: 370.0,
                                       child: TextFormField(
+                                        key: ValueKey('emailAddress_bkdf'),
                                         controller:
                                             _model.emailAddressTextController,
                                         focusNode: _model.emailAddressFocusNode,
@@ -283,6 +284,7 @@ class _CreateAccountWidgetState extends State<CreateAccountWidget> {
                                     child: Container(
                                       width: 370.0,
                                       child: TextFormField(
+                                        key: ValueKey('password_lu3s'),
                                         controller:
                                             _model.passwordTextController,
                                         focusNode: _model.passwordFocusNode,
@@ -396,6 +398,7 @@ class _CreateAccountWidgetState extends State<CreateAccountWidget> {
                                     child: Container(
                                       width: 370.0,
                                       child: TextFormField(
+                                        key: ValueKey('passwordConfirm_pf27'),
                                         controller: _model
                                             .passwordConfirmTextController,
                                         focusNode:
@@ -514,6 +517,7 @@ class _CreateAccountWidgetState extends State<CreateAccountWidget> {
                                       padding: EdgeInsetsDirectional.fromSTEB(
                                           0.0, 0.0, 0.0, 16.0),
                                       child: FFButtonWidget(
+                                        key: ValueKey('Button_0qhp'),
                                         onPressed: () async {
                                           GoRouter.of(context)
                                               .prepareAuthEvent();
