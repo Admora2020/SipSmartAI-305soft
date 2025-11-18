@@ -129,6 +129,7 @@ class _InitialScreenWidgetState extends State<InitialScreenWidget> {
                           ),
                         ),
                         FFButtonWidget(
+                          key: ValueKey('Button_cokq'),
                           onPressed: () async {
                             context.pushNamed(LoginPageWidget.routeName);
                           },

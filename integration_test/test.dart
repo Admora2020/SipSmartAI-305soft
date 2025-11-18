@@ -34,21 +34,26 @@ void main() async {
     await appState.initializePersistedState();
   });
 
-  testWidgets('Golden Path', (WidgetTester tester) async {
+  testWidgets('US2 Login', (WidgetTester tester) async {
     _overrideOnError();
-    await FirebaseAuth.instance.signInWithEmailAndPassword(
-        email: 'kyle_mard@uri.edu', password: '123456');
+
     await tester.pumpWidget(ChangeNotifierProvider(
       create: (context) => FFAppState(),
       child: MyApp(
-        entryPage: GoldenPathWidget(),
+        entryPage: InitialScreenWidget(),
       ),
     ));
     await GoogleFonts.pendingFonts();
 
-    await tester.tap(find.byKey(const ValueKey('undoButton_64rw')));
+    await tester.tap(find.byKey(const ValueKey('Button_cokq')));
     await tester.pumpAndSettle(const Duration(milliseconds: 3000));
-    expect(find.byKey(const ValueKey('ListView_nlch')), findsNothing);
+    await tester.enterText(
+        find.byKey(const ValueKey('Login-Email_tizn')), 'kyle_mard@uri.edu');
+    await tester.enterText(
+        find.byKey(const ValueKey('Login-Password_38jn')), '123456');
+    await tester.tap(find.byKey(const ValueKey('Login-Button_wyzq')));
+    await tester.pumpAndSettle(const Duration(milliseconds: 3000));
+    expect(find.byKey(const ValueKey('addDrinkButton_cyik')), findsOneWidget);
   });
 }
 

@@ -181,6 +181,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                   Container(
                                     width: double.infinity,
                                     child: TextFormField(
+                                      key: ValueKey('Login-Email_tizn'),
                                       controller:
                                           _model.loginEmailTextController,
                                       focusNode: _model.loginEmailFocusNode,
@@ -334,6 +335,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                   Container(
                                     width: double.infinity,
                                     child: TextFormField(
+                                      key: ValueKey('Login-Password_38jn'),
                                       controller:
                                           _model.loginPasswordTextController,
                                       focusNode: _model.loginPasswordFocusNode,
@@ -479,6 +481,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                     ),
                                   ),
                                   FFButtonWidget(
+                                    key: ValueKey('Login-Button_wyzq'),
                                     onPressed: () async {
                                       logFirebaseEvent('login_cta_click');
                                       GoRouter.of(context).prepareAuthEvent();
