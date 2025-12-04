@@ -1,48 +1,96 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>SipSmartAI – Track Smarter</title>
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <title>SipSmartAI – Track Smarter</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <header class="header">
+    <div class="hero-left">
+      <img src="logo.png" class="logo" alt="SipSmartAI Logo" />
+      <div>
+        <h1>SipSmartAI</h1>
+        <p class="subtitle">Track smarter, stay safer.</p>
+        <p class="dev-name">By 305Soft – Student Project</p>
+        <div class="rating-row">
+          <span class="stars">★★★★★</span>
+          <span class="rating-text">4.9 • Health &amp; Wellness</span>
+        </div>
+        <div class="tags">
+          <span class="tag">Alcohol Tracking</span>
+          <span class="tag">Harm Reduction</span>
+          <span class="tag">College Students</span>
+        </div>
+      </div>
+    </div>
 
-<header class="header">
-  <img src="logo.png" class="logo" alt="SipSmartAI Logo">
-  <h1>SipSmartAI</h1>
-  <p>Track smarter, stay safer.</p>
-</header>
+    <div class="hero-right">
+      <a href="https://sip-smart-a-i-w3ot2f.flutterflow.app/" target="_blank" class="cta-button">
+        Try Web Demo
+      </a>
+      <p class="cta-note">Opens the SipSmartAI web app in a new tab.</p>
+    </div>
+  </header>
 
-<section class="screenshots">
-  <img src="progresspage.png" alt="Progress Page Screenshot">
-  <img src="goldenpath.png" alt="Golden Path Screenshot">
-</section>
+  <!-- Fake “Google Play” style screenshots row -->
+  <section class="screenshots">
+    <img src="progresspage.png" alt="Progress Page Screenshot" />
+    <img src="goldenpath.png" alt="Golden Path Screenshot" />
+  </section>
 
-<section class="details">
-  <h2>About This App</h2>
-  <p>SipSmartAI helps you log alcohol intake, track BAC-level trends, and earn safe-drinking achievements using smart guidance.</p>
+  <main class="content">
+    <section class="details">
+      <h2>About this app</h2>
+      <p>
+        SipSmartAI helps you log alcohol intake, track BAC-level trends, and earn
+        safe-drinking “smart points” with clear guidance based on your
+        tolerance. It is built as a harm-reduction tool for people who want
+        more awareness and control over their drinking—not as a moral
+        judgment.
+      </p>
+      <ul>
+        <li>Set a personal tolerance and see your BAC progress in real time.</li>
+        <li>Log drinks with defaults for beer, wine, and shots or add custom pours.</li>
+        <li>View weekly “Smart Points” to see how often you stay within safe limits.</li>
+        <li>Use reminders and notifications to avoid going past your set threshold.</li>
+      </ul>
+    </section>
 
-  <ul>
-    <li>🧠 Learn your safest drinking habits</li>
-    <li>🍺 Log drinks easily and privately</li>
-    <li>📊 Weekly Smart Points and streak tracking</li>
-    <li>⚠️ Notifications before unsafe limits</li>
-  </ul>
+    <section class="info-grid">
+      <div class="card">
+        <h3>Key Features</h3>
+        <ul>
+          <li>Golden Path flow to set up profile, tolerance, and first session.</li>
+          <li>Smart BAC progress bar with your limit clearly displayed.</li>
+          <li>Weekly, monthly, and yearly stats pages powered by Firebase.</li>
+          <li>Survey + NPS to collect user feedback for future iterations.</li>
+        </ul>
+      </div>
 
-  <a class="button" href="howto.html">How to Use the App</a>
-</section>
+      <div class="card">
+        <h3>Tech Stack</h3>
+        <ul>
+          <li>FlutterFlow front-end (Flutter / Dart).</li>
+          <li>Firebase Auth &amp; Firestore for data and accounts.</li>
+          <li>Firebase Analytics &amp; Remote Config for metrics and A/B tests.</li>
+          <li>GitHub + GitHub Pages for this marketing site.</li>
+        </ul>
+      </div>
 
-<section class="embed">
-  <h2>Try SipSmartAI Right Now</h2>
-  <iframe 
-      src="https://web-preview-link-from-flutterflow"
-      class="preview">
-  </iframe>
-</section>
+      <div class="card">
+        <h3>Try the App</h3>
+        <p>
+          You can try a web build of SipSmartAI directly from your browser. The
+          demo is connected to our Production Firebase project used in CSC 305.
+        </p>
+        <a href="app.html" class="secondary-button">Open Embedded Demo</a>
+      </div>
+    </section>
+  </main>
 
-<footer>
-  <p>© 2025 SipSmartAI Team | CSC 305 | University of Rhode Island</p>
-</footer>
-
+  <footer class="footer">
+    <p>© 2025 SipSmartAI · 305Soft Course Project</p>
+  </footer>
 </body>
 </html>
