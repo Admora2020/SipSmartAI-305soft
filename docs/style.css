@@ -1,0 +1,45 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  background: #fff6dd;
+  color: #333;
+  text-align: center;
+}
+
+.header {
+  background: #ffce48;
+  padding: 20px;
+}
+
+.logo {
+  width: 100px;
+  border-radius: 16px;
+}
+
+h1, h2 {
+  color: #333;
+}
+
+.button {
+  display: inline-block;
+  padding: 12px 20px;
+  background: #ffb703;
+  color: black;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: bold;
+  margin-top: 12px;
+}
+
+.screenshots img, .screenshot-row img {
+  width: 30%;
+  margin: 8px;
+  border-radius: 10px;
+}
+
+.preview {
+  width: 100%;
+  height: 600px;
+  border: 0;
+  border-radius: 12px;
+}
