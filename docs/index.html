@@ -2,136 +2,72 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>SipSmartAI – Track Smarter, Stay Safer</title>
+  <title>SipSmartAI – Track Smarter</title>
   <link rel="stylesheet" href="style.css" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" />
 </head>
 <body>
-  <!-- Top nav -->
-  <header class="top-nav">
-    <div class="nav-left">
-      <img src="logo.png" alt="SipSmartAI logo" class="nav-logo" />
-      <span class="nav-title">SipSmartAI</span>
-    </div>
-    <nav class="nav-links">
-      <a href="#about">About</a>
-      <a href="#features">Features</a>
-      <a href="#screenshots">Screenshots</a>
-      <a href="#try">Try the App</a>
-    </nav>
-  </header>
 
-  <!-- Hero / “store listing” style -->
-  <section class="hero">
-    <div class="hero-text">
-      <p class="hero-label">Health & Wellness • Harm Reduction</p>
-      <h1>SipSmartAI</h1>
-      <p class="hero-tagline">
-        Track your drinks, see your BAC trend, and earn “smart points” for staying within your safe limit.
-      </p>
+<header class="header">
+  <img src="logo.png" class="logo" alt="SipSmartAI Logo" />
+  <h1>SipSmartAI</h1>
+  <p>Track smarter, stay safer.</p>
 
-      <div class="hero-rating">
-        <span class="stars">★★★★★</span>
-        <span class="rating-text">4.9 • Student Project</span>
-      </div>
+  <!-- Navigation Tabs -->
+  <nav class="top-nav">
+    <a href="index.html" class="active">Home</a>
+    <a href="privacy.html">Privacy Policy</a>
+  </nav>
 
-      <ul class="hero-bullets">
-        <li>Built for college students who want to drink more mindfully.</li>
-        <li>No judgment — just clear feedback based on your tolerance.</li>
-        <li>Smart stats to show how often you stay within your limits.</li>
-      </ul>
+  <p class="rating">⭐ 4.9 — Health & Wellness</p>
+  <p class="subtitle">Alcohol Tracking • Harm Reduction • College Students</p>
 
-      <div class="hero-buttons" id="try">
-        <a class="primary-btn" href="https://sip-smart-a-i-w3ot2f.flutterflow.app/" target="_blank" rel="noopener">
-          ▶ Try Web Demo
-        </a>
-        <span class="demo-note">Opens the SipSmartAI web app in a new tab.</span>
-      </div>
-    </div>
+  <a class="demo-btn" href="https://sip-smart-a-i-w3ot2f.flutterflow.app/" target="_blank">
+    Try Web Demo
+  </a>
+</header>
 
-    <div class="hero-phone">
-      <div class="phone-frame">
-        <img src="goldenpath.png" alt="SipSmartAI Golden Path screen" />
-      </div>
-      <p class="phone-caption">Set your tolerance and start your first smart drinking session.</p>
-    </div>
-  </section>
+<section class="screenshots">
+  <img src="progresspage.png" alt="Progress Page Screenshot" />
+  <img src="goldenpath.png" alt="Golden Path Screenshot" />
+</section>
 
-  <!-- About section -->
-  <section id="about" class="section section-light">
-    <h2>About this app</h2>
-    <p class="section-text">
-      SipSmartAI is a harm-reduction tool that helps students keep track of their alcohol intake
-      and make safer choices. You set a personal tolerance, log each drink, and see your estimated
-      BAC and “smart points” update in real time. The goal is more awareness and control over
-      drinking — not a moral judgment.
-    </p>
-  </section>
+<section class="content">
+  <h2>About this app</h2>
+  <p>
+    SipSmartAI helps you log alcohol intake, track BAC-level trends,
+    and earn safe-drinking “smart points” with clear guidance
+    based on your tolerance. It is built as a harm-reduction tool for
+    people who want more awareness and control over their drinking —
+    not as a moral judgment.
+  </p>
 
-  <!-- Key features -->
-  <section id="features" class="section">
-    <h2>Key features</h2>
-    <div class="cards">
-      <article class="card">
-        <h3>Golden Path setup</h3>
-        <p>
-          A guided flow to capture height, weight, and tolerance so SipSmartAI can estimate your
-          BAC and safe range.
-        </p>
-      </article>
+  <ul class="features">
+    <li>Set a personal tolerance and see your BAC progress in real time.</li>
+    <li>Log drinks with defaults for beer, wine, and shots or add custom pours.</li>
+    <li>View weekly “Smart Points” to see how often you stay within safe limits.</li>
+    <li>Use reminders and notifications to avoid going past your set threshold.</li>
+  </ul>
 
-      <article class="card">
-        <h3>Smart BAC progress bar</h3>
-        <p>
-          Live BAC progress bar that shows your current level versus your personal limit as you log drinks.
-        </p>
-      </article>
+  <h2>Key Features</h2>
+  <ul class="features">
+    <li>Golden Path flow to set up profile, tolerance, and first session.</li>
+    <li>Smart BAC progress bar with your limit clearly displayed.</li>
+    <li>Weekly, monthly, and yearly stats powered by Firebase.</li>
+    <li>Survey + NPS to collect user feedback for future iterations.</li>
+  </ul>
 
-      <article class="card">
-        <h3>Easy drink logging</h3>
-        <p>
-          Defaults for beer, wine, and shots plus custom pours. Add or remove drinks with a single tap.
-        </p>
-      </article>
+  <h2>Tech Stack</h2>
+  <ul class="features">
+    <li>FlutterFlow front-end (Flutter / Dart).</li>
+    <li>Firebase Auth & Firestore for data and accounts.</li>
+    <li>Firebase Analytics & Remote Config for metrics and A/B tests.</li>
+    <li>Firebase Hosting for Web Deployment.</li>
+  </ul>
+</section>
 
-      <article class="card">
-        <h3>Weekly smart points</h3>
-        <p>
-          Weekly stats that show total mL consumed, “safe days” streaks, and how often you stayed
-          under your limit.
-        </p>
-      </article>
-    </div>
-  </section>
+<footer class="footer">
+  <p>&copy; 2025 SipSmartAI — 305Soft Student Project</p>
+</footer>
 
-  <!-- Screenshots -->
-  <section id="screenshots" class="section section-light">
-    <h2>App screenshots</h2>
-    <p class="section-text">
-      A quick look at the main screens you’ll see when using SipSmartAI.
-    </p>
-
-    <div class="screenshot-grid">
-      <figure class="screenshot-card">
-        <img src="goldenpath.png" alt="Golden Path screen" />
-        <figcaption>Golden Path session with BAC progress bar and active drinks.</figcaption>
-      </figure>
-
-      <figure class="screenshot-card">
-        <img src="progresspage.png" alt="Progress page screenshot" />
-        <figcaption>Weekly overview with daily intake bars and smart summary.</figcaption>
-      </figure>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer class="footer">
-    <p>SipSmartAI • 305Soft student project • University of Rhode Island</p>
-    <p class="footer-small">
-      Built with FlutterFlow, Firebase Auth, Firestore, Analytics, and Remote Config for metrics and A/B tests.
-    </p>
-  </footer>
 </body>
 </html>
