@@ -16,6 +16,8 @@ Future<int?> addDrink(
   String drinkKey,
   String name,
   int? sizeMl,
+  double? abv, // ABV percentage (e.g. 5.0 for 5%)
+  int? count,
 ) async {
   final uid = currentUserUid;
   if (uid.isEmpty) {
@@ -36,13 +38,26 @@ Future<int?> addDrink(
   final totalsRef =
       FirebaseFirestore.instance.collection('drinkTotals').doc(docId);
 
-  // Optional: keep the log for history/analytics
   final logsRef = FirebaseFirestore.instance.collection('drinks');
+  final userRef = FirebaseFirestore.instance.collection('users').doc(uid);
+
+  int incrementAmount = 1;
+  if (count != null) incrementAmount = count;
 
   int? newCount;
 
   await FirebaseFirestore.instance.runTransaction((tx) async {
-    // 1) Read or create totals (ensure removed=false, bump lastAddedAt)
+    // Current time in ms
+    final nowMs = DateTime.now().millisecondsSinceEpoch;
+
+    // 🔹 Read user doc once inside the transaction
+    final userSnap = await tx.get(userRef);
+    final userData = userSnap.data() as Map<String, dynamic>?;
+    final existingFirstMs =
+        (userData?['firstDrinkTimestampMs'] as num?)?.toInt();
+    final bool shouldSetFirst = existingFirstMs == null || existingFirstMs <= 0;
+
+    // 1) totals doc
     final snap = await tx.get(totalsRef);
     if (!snap.exists) {
       tx.set(totalsRef, {
@@ -51,35 +66,65 @@ Future<int?> addDrink(
         'drinkKey': safeKey,
         'name': name,
         if (sizeMl != null) 'size_ml': sizeMl,
+        if (abv != null) 'abv': abv,
         'createdAt': FieldValue.serverTimestamp(),
         'updatedAt': FieldValue.serverTimestamp(),
-        'lastAddedAt': FieldValue.serverTimestamp(), // <—
-        'removed': false, // <—
-        'count': 1,
+        'lastAddedAt': FieldValue.serverTimestamp(),
+        'lastDrinkTimestampMs': nowMs, // optional per-drink info
+        'removed': false,
+        'count': incrementAmount,
       });
-      newCount = 1;
+      newCount = incrementAmount;
     } else {
       final data = (snap.data() as Map<String, dynamic>? ?? {});
       final current = (data['count'] as num?)?.toInt() ?? 0;
-      final next = current + 1;
-      tx.update(totalsRef, {
+      final next = current + incrementAmount;
+
+      final updateData = <String, dynamic>{
         'updatedAt': FieldValue.serverTimestamp(),
-        'lastAddedAt': FieldValue.serverTimestamp(), // <—
-        'removed': false, // revive if it was true
+        'lastAddedAt': FieldValue.serverTimestamp(),
+        'lastDrinkTimestampMs': nowMs,
+        'removed': false,
         'count': next,
-      });
+      };
+
+      if (abv != null) {
+        updateData['abv'] = abv;
+      }
+      if (sizeMl != null) {
+        updateData['size_ml'] = sizeMl;
+      }
+
+      tx.update(totalsRef, updateData);
       newCount = next;
     }
 
-    // 2) (Optional) Append log row for Undo/history
-    final logRef = logsRef.doc(); // auto id
+    // 2) user-level drink timestamps
+    final userUpdate = <String, dynamic>{
+      // always update "last" for your time-since-last-drink timer
+      'lastDrinkTimestampMs': nowMs,
+      'lastDrinkAt': FieldValue.serverTimestamp(),
+    };
+
+    if (shouldSetFirst) {
+      // only set "first" once, on the very first drink in the session/history
+      userUpdate['firstDrinkTimestampMs'] = nowMs;
+      userUpdate['firstDrinkAt'] = FieldValue.serverTimestamp();
+    }
+
+    tx.set(userRef, userUpdate, SetOptions(merge: true));
+
+    // 3) log row (optional)
+    final logRef = logsRef.doc();
     tx.set(logRef, {
       'user': uid,
       'name': name,
       if (sizeMl != null) 'size_ml': sizeMl,
+      if (abv != null) 'abv': abv,
       'drinkKey': safeKey,
       'totalsDocId': docId,
       'currentTime': FieldValue.serverTimestamp(),
+      'currentTimeMs': nowMs,
       'removed': false,
     });
   });
@@ -87,5 +132,6 @@ Future<int?> addDrink(
   debugPrint('incrementDrinkTotal → $docId = $newCount');
   return newCount;
 }
+
 // Set your action name, define your arguments and return parameter,
 // and then add the boilerplate code using the green button on the right!

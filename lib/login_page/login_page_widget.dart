@@ -1,4 +1,5 @@
 import '/auth/firebase_auth/auth_util.dart';
+import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -99,6 +100,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
             decoration: BoxDecoration(
               color: colorFromCssString(
                 getRemoteConfigString('app_Theme_Style'),
+                defaultColor: FlutterFlowTheme.of(context).secondary,
               ),
             ),
             child: Stack(
@@ -123,8 +125,8 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                               color: Color(0xFF020202),
                               size: 35.0,
                             ),
-                            onPressed: () {
-                              print('IconButton pressed ...');
+                            onPressed: () async {
+                              context.pushNamed(InitialScreenWidget.routeName);
                             },
                           ),
                         ),
@@ -145,8 +147,9 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                     child: ClipRRect(
                                       borderRadius: BorderRadius.circular(8.0),
                                       child: Image.asset(
-                                        'assets/images/Screenshot_2025-10-20_143128.png',
+                                        'assets/images/Screenshot_2025-11-18_120547.png',
                                         width: 181.4,
+                                        height: 165.0,
                                         fit: BoxFit.cover,
                                         alignment: Alignment(0.0, -1.0),
                                       ),
@@ -498,9 +501,26 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
 
                                       logFirebaseEvent('login_success');
 
-                                      context.pushNamedAuth(
-                                          GoldenPathWidget.routeName,
-                                          context.mounted);
+                                      await currentUserReference!.update({
+                                        ...mapToFirestore(
+                                          {
+                                            'logincount':
+                                                FieldValue.increment(1),
+                                          },
+                                        ),
+                                      });
+                                      if ((_model.nextLoginCount >= 3) &&
+                                          !valueOrDefault<bool>(
+                                              currentUserDocument?.npsCompleted,
+                                              false)) {
+                                        context.pushNamedAuth(
+                                            NpsWidget.routeName,
+                                            context.mounted);
+                                      } else {
+                                        context.pushNamedAuth(
+                                            GoldenPathWidget.routeName,
+                                            context.mounted);
+                                      }
                                     },
                                     text: 'Login',
                                     options: FFButtonOptions(

@@ -64,7 +64,7 @@ class _CreateAccountWidgetState extends State<CreateAccountWidget> {
               maxWidth: 400.0,
             ),
             decoration: BoxDecoration(
-              color: Colors.white,
+              color: FlutterFlowTheme.of(context).secondary,
             ),
             child: Row(
               mainAxisSize: MainAxisSize.max,
@@ -97,18 +97,22 @@ class _CreateAccountWidgetState extends State<CreateAccountWidget> {
                               alignment: AlignmentDirectional(-1.0, 0.0),
                               child: Column(
                                 mainAxisSize: MainAxisSize.max,
+                                mainAxisAlignment: MainAxisAlignment.start,
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  Align(
-                                    alignment: AlignmentDirectional(1.0, -1.0),
-                                    child: ClipRRect(
-                                      borderRadius: BorderRadius.circular(24.0),
-                                      child: Image.asset(
-                                        'assets/images/Screenshot_2025-10-20_143128.png',
-                                        width: 80.0,
-                                        height: 80.0,
-                                        fit: BoxFit.contain,
-                                        alignment: Alignment(0.0, -1.0),
+                                  Expanded(
+                                    child: Align(
+                                      alignment: AlignmentDirectional(0.0, 0.0),
+                                      child: ClipRRect(
+                                        borderRadius:
+                                            BorderRadius.circular(0.0),
+                                        child: Image.asset(
+                                          'assets/images/Screenshot_2025-11-18_120547.png',
+                                          width: double.infinity,
+                                          height: 142.4,
+                                          fit: BoxFit.contain,
+                                          alignment: Alignment(0.0, 0.0),
+                                        ),
                                       ),
                                     ),
                                   ),

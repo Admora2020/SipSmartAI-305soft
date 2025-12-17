@@ -120,6 +120,36 @@ class UsersRecord extends FirestoreRecord {
   DateTime? get createdTime => _createdTime;
   bool hasCreatedTime() => _createdTime != null;
 
+  // "lastDrinkTimestampMs" field.
+  int? _lastDrinkTimestampMs;
+  int get lastDrinkTimestampMs => _lastDrinkTimestampMs ?? 0;
+  bool hasLastDrinkTimestampMs() => _lastDrinkTimestampMs != null;
+
+  // "firstDrinkTimestampMs" field.
+  int? _firstDrinkTimestampMs;
+  int get firstDrinkTimestampMs => _firstDrinkTimestampMs ?? 0;
+  bool hasFirstDrinkTimestampMs() => _firstDrinkTimestampMs != null;
+
+  // "bacLimit" field.
+  String? _bacLimit;
+  String get bacLimit => _bacLimit ?? '';
+  bool hasBacLimit() => _bacLimit != null;
+
+  // "volumeLimit" field.
+  String? _volumeLimit;
+  String get volumeLimit => _volumeLimit ?? '';
+  bool hasVolumeLimit() => _volumeLimit != null;
+
+  // "logincount" field.
+  int? _logincount;
+  int get logincount => _logincount ?? 0;
+  bool hasLogincount() => _logincount != null;
+
+  // "npsCompleted" field.
+  bool? _npsCompleted;
+  bool get npsCompleted => _npsCompleted ?? false;
+  bool hasNpsCompleted() => _npsCompleted != null;
+
   void _initializeFields() {
     _email = snapshotData['email'] as String?;
     _displayName = snapshotData['display_name'] as String?;
@@ -142,6 +172,14 @@ class UsersRecord extends FirestoreRecord {
     _toleranceLevel = castToType<double>(snapshotData['tolerance_level']);
     _birthday = snapshotData['birthday'] as DateTime?;
     _createdTime = snapshotData['created_time'] as DateTime?;
+    _lastDrinkTimestampMs =
+        castToType<int>(snapshotData['lastDrinkTimestampMs']);
+    _firstDrinkTimestampMs =
+        castToType<int>(snapshotData['firstDrinkTimestampMs']);
+    _bacLimit = snapshotData['bacLimit'] as String?;
+    _volumeLimit = snapshotData['volumeLimit'] as String?;
+    _logincount = castToType<int>(snapshotData['logincount']);
+    _npsCompleted = snapshotData['npsCompleted'] as bool?;
   }
 
   static CollectionReference get collection =>
@@ -199,6 +237,12 @@ Map<String, dynamic> createUsersRecordData({
   double? toleranceLevel,
   DateTime? birthday,
   DateTime? createdTime,
+  int? lastDrinkTimestampMs,
+  int? firstDrinkTimestampMs,
+  String? bacLimit,
+  String? volumeLimit,
+  int? logincount,
+  bool? npsCompleted,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -223,6 +267,12 @@ Map<String, dynamic> createUsersRecordData({
       'tolerance_level': toleranceLevel,
       'birthday': birthday,
       'created_time': createdTime,
+      'lastDrinkTimestampMs': lastDrinkTimestampMs,
+      'firstDrinkTimestampMs': firstDrinkTimestampMs,
+      'bacLimit': bacLimit,
+      'volumeLimit': volumeLimit,
+      'logincount': logincount,
+      'npsCompleted': npsCompleted,
     }.withoutNulls,
   );
 
@@ -254,7 +304,13 @@ class UsersRecordDocumentEquality implements Equality<UsersRecord> {
         e1?.heightIn == e2?.heightIn &&
         e1?.toleranceLevel == e2?.toleranceLevel &&
         e1?.birthday == e2?.birthday &&
-        e1?.createdTime == e2?.createdTime;
+        e1?.createdTime == e2?.createdTime &&
+        e1?.lastDrinkTimestampMs == e2?.lastDrinkTimestampMs &&
+        e1?.firstDrinkTimestampMs == e2?.firstDrinkTimestampMs &&
+        e1?.bacLimit == e2?.bacLimit &&
+        e1?.volumeLimit == e2?.volumeLimit &&
+        e1?.logincount == e2?.logincount &&
+        e1?.npsCompleted == e2?.npsCompleted;
   }
 
   @override
@@ -279,7 +335,13 @@ class UsersRecordDocumentEquality implements Equality<UsersRecord> {
         e?.heightIn,
         e?.toleranceLevel,
         e?.birthday,
-        e?.createdTime
+        e?.createdTime,
+        e?.lastDrinkTimestampMs,
+        e?.firstDrinkTimestampMs,
+        e?.bacLimit,
+        e?.volumeLimit,
+        e?.logincount,
+        e?.npsCompleted
       ]);
 
   @override

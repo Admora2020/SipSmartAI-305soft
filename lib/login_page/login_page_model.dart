@@ -8,6 +8,8 @@ class LoginPageModel extends FlutterFlowModel<LoginPageWidget> {
 
   bool isHovering = false;
 
+  int nextLoginCount = 0;
+
   ///  State fields for stateful widgets in this page.
 
   // State field(s) for Login-Email widget.

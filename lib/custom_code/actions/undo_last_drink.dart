@@ -8,8 +8,6 @@ import 'package:flutter/material.dart';
 // Begin custom action code
 // DO NOT REMOVE OR MODIFY THE CODE ABOVE!
 
-// Automatic FlutterFlow importssize
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 import '/auth/firebase_auth/auth_util.dart';
 
@@ -17,50 +15,132 @@ Future<int?> undoLastDrink(BuildContext context) async {
   final uid = currentUserUid;
   if (uid.isEmpty) return null;
 
-  final col = FirebaseFirestore.instance.collection('drinkTotals');
+  final firestore = FirebaseFirestore.instance;
+  final totalsCol = firestore.collection('drinkTotals');
+  final userRef = firestore.collection('users').doc(uid);
 
   try {
-    // Equality filters only (no orderBy => no composite index needed)
-    final qs = await col
+    // 1) Get all active totals for this user
+    final qs = await totalsCol
         .where('ownerUid', isEqualTo: uid)
         .where('removed', isEqualTo: false)
-        .orderBy('lastAddedAt', descending: true)
-        .limit(1)
         .get();
 
     if (qs.docs.isEmpty) return null;
 
-    // Pick the newest by lastAddedAt (fallback to updatedAt/createdAt)
-    QueryDocumentSnapshot<Map<String, dynamic>> newest = qs.docs.first;
-    Timestamp stampOf(d) =>
+    // Helper: choose a timestamp for "most recently added"
+    Timestamp stampOf(QueryDocumentSnapshot<Map<String, dynamic>> d) =>
         (d.data()['lastAddedAt'] as Timestamp?) ??
         (d.data()['updatedAt'] as Timestamp?) ??
-        (d.data()['createdAt'] as Timestamp?) ??
         Timestamp(0, 0);
 
+    // 2) Pick newest doc among those with count > 0
+    QueryDocumentSnapshot<Map<String, dynamic>>? newest;
     for (final d in qs.docs) {
-      if (stampOf(d).compareTo(stampOf(newest)) > 0) newest = d;
+      final c = (d.data()['count'] as num?)?.toInt() ?? 0;
+      if (c <= 0) continue;
+      if (newest == null || stampOf(d).compareTo(stampOf(newest!)) > 0) {
+        newest = d;
+      }
     }
 
-    final ref = newest.reference;
-    final data = newest.data();
+    if (newest == null) return null;
+
+    final ref = newest!.reference;
+    final data = newest!.data();
     final current = (data['count'] as num?)?.toInt() ?? 0;
 
+    int nextCount;
+
+    // 3) Decrement that totals doc
     if (current <= 1) {
+      nextCount = 0;
       await ref.update({
         'count': 0,
         'removed': true,
         'updatedAt': FieldValue.serverTimestamp(),
+        // DON'T touch lastAddedAt on undo
       });
-      return 0;
     } else {
-      final next = current - 1;
+      nextCount = current - 1;
       await ref.update({
-        'count': next,
+        'count': nextCount,
+        'removed': false, // CRITICAL FIX
         'updatedAt': FieldValue.serverTimestamp(),
       });
-      return next;
     }
+
+    // 4) Recompute FIRST + LAST from remaining active totals
+    final qsAfter = await totalsCol
+        .where('ownerUid', isEqualTo: uid)
+        .where('removed', isEqualTo: false)
+        .get();
+
+    int latestMs = 0;
+    Timestamp? latestTs;
+
+    int earliestMs = 0;
+    Timestamp? earliestTs;
+
+    for (final d in qsAfter.docs) {
+      final dt = d.data();
+      final count = (dt['count'] as num?)?.toInt() ?? 0;
+      if (count <= 0) continue;
+
+      final lastAddedAt = dt['lastAddedAt'] is Timestamp
+          ? dt['lastAddedAt'] as Timestamp
+          : null;
+      final updatedAt =
+          dt['updatedAt'] is Timestamp ? dt['updatedAt'] as Timestamp : null;
+
+      // "Last" candidate = later of lastAddedAt/updatedAt
+      Timestamp? candidateLastTs;
+      if (lastAddedAt != null && updatedAt != null) {
+        candidateLastTs =
+            lastAddedAt.compareTo(updatedAt) >= 0 ? lastAddedAt : updatedAt;
+      } else {
+        candidateLastTs = lastAddedAt ?? updatedAt;
+      }
+
+      // "First" candidate for BAC timing:
+      // earliest of lastAddedAt/updatedAt (NOT createdAt)
+      Timestamp? candidateFirstTs;
+      if (lastAddedAt != null && updatedAt != null) {
+        candidateFirstTs =
+            lastAddedAt.compareTo(updatedAt) <= 0 ? lastAddedAt : updatedAt;
+      } else {
+        candidateFirstTs = lastAddedAt ?? updatedAt;
+      }
+      candidateFirstTs ??= candidateLastTs;
+
+      if (candidateLastTs != null) {
+        final ms = candidateLastTs.millisecondsSinceEpoch;
+        if (ms > latestMs) {
+          latestMs = ms;
+          latestTs = candidateLastTs;
+        }
+      }
+
+      if (candidateFirstTs != null) {
+        final ms = candidateFirstTs.millisecondsSinceEpoch;
+        if (earliestMs == 0 || ms < earliestMs) {
+          earliestMs = ms;
+          earliestTs = candidateFirstTs;
+        }
+      }
+    }
+
+    final hasNoDrinks = latestMs == 0;
+
+    // 5) Update user timestamps
+    await userRef.set({
+      'firstDrinkTimestampMs': hasNoDrinks ? 0 : earliestMs,
+      'firstDrinkAt': hasNoDrinks ? null : earliestTs,
+      'lastDrinkTimestampMs': hasNoDrinks ? 0 : latestMs,
+      'lastDrinkAt': hasNoDrinks ? null : latestTs,
+    }, SetOptions(merge: true));
+
+    return nextCount;
   } catch (e) {
     debugPrint('[UNDO][ERROR] $e');
     return null;

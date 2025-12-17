@@ -22,6 +22,8 @@ class DrinksRecord extends FirestoreRecord {
 
   // "drink_size" field.
   double? _drinkSize;
+
+  /// mL
   double get drinkSize => _drinkSize ?? 0.0;
   bool hasDrinkSize() => _drinkSize != null;
 
@@ -45,6 +47,11 @@ class DrinksRecord extends FirestoreRecord {
   bool get removed => _removed ?? false;
   bool hasRemoved() => _removed != null;
 
+  // "drink_abv" field.
+  double? _drinkAbv;
+  double get drinkAbv => _drinkAbv ?? 0.0;
+  bool hasDrinkAbv() => _drinkAbv != null;
+
   void _initializeFields() {
     _drinkName = snapshotData['drink_name'] as String?;
     _drinkSize = castToType<double>(snapshotData['drink_size']);
@@ -52,6 +59,7 @@ class DrinksRecord extends FirestoreRecord {
     _currentTime = snapshotData['currentTime'] as DateTime?;
     _user = snapshotData['user'] as DocumentReference?;
     _removed = snapshotData['removed'] as bool?;
+    _drinkAbv = castToType<double>(snapshotData['drink_abv']);
   }
 
   static CollectionReference get collection =>
@@ -94,6 +102,7 @@ Map<String, dynamic> createDrinksRecordData({
   DateTime? currentTime,
   DocumentReference? user,
   bool? removed,
+  double? drinkAbv,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -103,6 +112,7 @@ Map<String, dynamic> createDrinksRecordData({
       'currentTime': currentTime,
       'user': user,
       'removed': removed,
+      'drink_abv': drinkAbv,
     }.withoutNulls,
   );
 
@@ -119,7 +129,8 @@ class DrinksRecordDocumentEquality implements Equality<DrinksRecord> {
         e1?.counter == e2?.counter &&
         e1?.currentTime == e2?.currentTime &&
         e1?.user == e2?.user &&
-        e1?.removed == e2?.removed;
+        e1?.removed == e2?.removed &&
+        e1?.drinkAbv == e2?.drinkAbv;
   }
 
   @override
@@ -129,7 +140,8 @@ class DrinksRecordDocumentEquality implements Equality<DrinksRecord> {
         e?.counter,
         e?.currentTime,
         e?.user,
-        e?.removed
+        e?.removed,
+        e?.drinkAbv
       ]);
 
   @override

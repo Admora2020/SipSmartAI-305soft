@@ -62,7 +62,7 @@ class _ProfileCreationAgeGenderWidgetState
               maxWidth: 400.0,
             ),
             decoration: BoxDecoration(
-              color: Color(0xFFF8F8F8),
+              color: FlutterFlowTheme.of(context).secondary,
             ),
             child: Padding(
               padding: EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 24.0),

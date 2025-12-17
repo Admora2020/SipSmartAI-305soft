@@ -75,7 +75,7 @@ class _ProfileCreationHeightWidgetState
               maxWidth: 400.0,
             ),
             decoration: BoxDecoration(
-              color: Color(0xFFFCFCFC),
+              color: FlutterFlowTheme.of(context).secondary,
             ),
             child: Padding(
               padding: EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 24.0),
@@ -92,26 +92,27 @@ class _ProfileCreationHeightWidgetState
                       children: [
                         Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(
-                              50.0, 44.0, 50.0, 210.0),
+                              50.0, 44.0, 50.0, 80.0),
                           child: Text(
                             'What is your height?',
                             textAlign: TextAlign.center,
                             style: FlutterFlowTheme.of(context)
-                                .displaySmall
+                                .headlineLarge
                                 .override(
                                   font: GoogleFonts.poppins(
-                                    fontWeight: FontWeight.w600,
+                                    fontWeight: FlutterFlowTheme.of(context)
+                                        .headlineLarge
+                                        .fontWeight,
                                     fontStyle: FlutterFlowTheme.of(context)
-                                        .displaySmall
+                                        .headlineLarge
                                         .fontStyle,
                                   ),
-                                  color:
-                                      FlutterFlowTheme.of(context).primaryText,
-                                  fontSize: 24.0,
                                   letterSpacing: 0.0,
-                                  fontWeight: FontWeight.w600,
+                                  fontWeight: FlutterFlowTheme.of(context)
+                                      .headlineLarge
+                                      .fontWeight,
                                   fontStyle: FlutterFlowTheme.of(context)
-                                      .displaySmall
+                                      .headlineLarge
                                       .fontStyle,
                                 ),
                           ),
@@ -123,8 +124,8 @@ class _ProfileCreationHeightWidgetState
                             Align(
                               alignment: AlignmentDirectional(0.0, 0.0),
                               child: Container(
-                                width: 240.0,
-                                height: 362.1,
+                                width: 280.0,
+                                height: 350.0,
                                 decoration: BoxDecoration(
                                   color: FlutterFlowTheme.of(context).alternate,
                                   borderRadius: BorderRadius.circular(24.0),

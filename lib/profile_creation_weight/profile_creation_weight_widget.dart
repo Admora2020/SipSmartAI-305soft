@@ -72,7 +72,7 @@ class _ProfileCreationWeightWidgetState
               maxWidth: 400.0,
             ),
             decoration: BoxDecoration(
-              color: Colors.white,
+              color: FlutterFlowTheme.of(context).secondary,
             ),
             child: Padding(
               padding: EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 24.0),
@@ -89,26 +89,27 @@ class _ProfileCreationWeightWidgetState
                       children: [
                         Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(
-                              50.0, 0.0, 50.0, 250.0),
+                              50.0, 0.0, 50.0, 80.0),
                           child: Text(
                             'What is your weight?',
                             textAlign: TextAlign.center,
                             style: FlutterFlowTheme.of(context)
-                                .displaySmall
+                                .headlineLarge
                                 .override(
                                   font: GoogleFonts.poppins(
-                                    fontWeight: FontWeight.w600,
+                                    fontWeight: FlutterFlowTheme.of(context)
+                                        .headlineLarge
+                                        .fontWeight,
                                     fontStyle: FlutterFlowTheme.of(context)
-                                        .displaySmall
+                                        .headlineLarge
                                         .fontStyle,
                                   ),
-                                  color:
-                                      FlutterFlowTheme.of(context).primaryText,
-                                  fontSize: 24.0,
                                   letterSpacing: 0.0,
-                                  fontWeight: FontWeight.w600,
+                                  fontWeight: FlutterFlowTheme.of(context)
+                                      .headlineLarge
+                                      .fontWeight,
                                   fontStyle: FlutterFlowTheme.of(context)
-                                      .displaySmall
+                                      .headlineLarge
                                       .fontStyle,
                                 ),
                           ),

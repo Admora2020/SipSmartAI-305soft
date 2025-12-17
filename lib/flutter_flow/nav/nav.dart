@@ -6,7 +6,7 @@ import 'package:provider/provider.dart';
 
 import '/auth/base_auth_user_provider.dart';
 
-import '/flutter_flow/flutter_flow_theme.dart';
+import '/main.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 
 import '/index.dart';
@@ -78,14 +78,14 @@ GoRouter createRouter(AppStateNotifier appStateNotifier, [Widget? entryPage]) =>
       refreshListenable: appStateNotifier,
       navigatorKey: appNavigatorKey,
       errorBuilder: (context, state) => appStateNotifier.loggedIn
-          ? entryPage ?? GoldenPathWidget()
+          ? entryPage ?? NavBarPage()
           : InitialScreenWidget(),
       routes: [
         FFRoute(
           name: '_initialize',
           path: '/',
           builder: (context, _) => appStateNotifier.loggedIn
-              ? entryPage ?? GoldenPathWidget()
+              ? entryPage ?? NavBarPage()
               : InitialScreenWidget(),
         ),
         FFRoute(
@@ -109,24 +109,21 @@ GoRouter createRouter(AppStateNotifier appStateNotifier, [Widget? entryPage]) =>
           builder: (context, params) => ProfileCreationAgeGenderWidget(),
         ),
         FFRoute(
-          name: CreateAccountWidget.routeName,
-          path: CreateAccountWidget.routePath,
-          builder: (context, params) => CreateAccountWidget(),
-        ),
-        FFRoute(
-          name: NpsWidget.routeName,
-          path: NpsWidget.routePath,
-          builder: (context, params) => NpsWidget(),
-        ),
-        FFRoute(
           name: ToleranceLevelPageWidget.routeName,
           path: ToleranceLevelPageWidget.routePath,
           builder: (context, params) => ToleranceLevelPageWidget(),
         ),
         FFRoute(
+          name: CreateAccountWidget.routeName,
+          path: CreateAccountWidget.routePath,
+          builder: (context, params) => CreateAccountWidget(),
+        ),
+        FFRoute(
           name: ProfileEditingWidget.routeName,
           path: ProfileEditingWidget.routePath,
-          builder: (context, params) => ProfileEditingWidget(),
+          builder: (context, params) => params.isEmpty
+              ? NavBarPage(initialPage: 'ProfileEditing')
+              : ProfileEditingWidget(),
         ),
         FFRoute(
           name: LoginPageWidget.routeName,
@@ -134,10 +131,43 @@ GoRouter createRouter(AppStateNotifier appStateNotifier, [Widget? entryPage]) =>
           builder: (context, params) => LoginPageWidget(),
         ),
         FFRoute(
-          name: GoldenPathWidget.routeName,
-          path: GoldenPathWidget.routePath,
-          builder: (context, params) => GoldenPathWidget(),
-        )
+          name: NpsWidget.routeName,
+          path: NpsWidget.routePath,
+          builder: (context, params) => NpsWidget(),
+        ),
+        FFRoute(
+            name: ProgressPageWidget.routeName,
+            path: ProgressPageWidget.routePath,
+            builder: (context, params) => params.isEmpty
+                ? NavBarPage(initialPage: 'ProgressPage')
+                : NavBarPage(
+                    initialPage: 'ProgressPage',
+                    page: ProgressPageWidget(
+                      weekStart: params.getParam(
+                        'weekStart',
+                        ParamType.DateTime,
+                      ),
+                    ),
+                  )),
+        FFRoute(
+          name: BarcodeResultsWidget.routeName,
+          path: BarcodeResultsWidget.routePath,
+          builder: (context, params) => BarcodeResultsWidget(
+            apiResult: params.getParam(
+              'apiResult',
+              ParamType.JSON,
+            ),
+          ),
+        ),
+        FFRoute(
+            name: GoldenPathWidget.routeName,
+            path: GoldenPathWidget.routePath,
+            builder: (context, params) => params.isEmpty
+                ? NavBarPage(initialPage: 'GoldenPath')
+                : NavBarPage(
+                    initialPage: 'GoldenPath',
+                    page: GoldenPathWidget(),
+                  ))
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );
 
@@ -326,7 +356,7 @@ class FFRoute {
                     width: 50.0,
                     height: 50.0,
                     child: SpinKitWave(
-                      color: FlutterFlowTheme.of(context).primary,
+                      color: Color(0xFFFBC02D),
                       size: 50.0,
                     ),
                   ),

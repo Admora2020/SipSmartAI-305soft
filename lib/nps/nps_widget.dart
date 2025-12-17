@@ -54,7 +54,7 @@ class _NpsWidgetState extends State<NpsWidget> {
       },
       child: Scaffold(
         key: scaffoldKey,
-        backgroundColor: Color(0xFFF0F5F9),
+        backgroundColor: FlutterFlowTheme.of(context).secondary,
         body: SafeArea(
           top: true,
           child: Align(
@@ -64,13 +64,26 @@ class _NpsWidgetState extends State<NpsWidget> {
                 maxWidth: 400.0,
               ),
               decoration: BoxDecoration(
-                color: Color(0xFFF0F5F9),
+                color: FlutterFlowTheme.of(context).secondary,
               ),
               child: Stack(
                 children: [
                   Padding(
-                    padding:
-                        EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
+                    padding: EdgeInsetsDirectional.fromSTEB(
+                        valueOrDefault<double>(
+                          MediaQuery.sizeOf(context).width < kBreakpointSmall
+                              ? 10.0
+                              : 24.0,
+                          0.0,
+                        ),
+                        0.0,
+                        valueOrDefault<double>(
+                          MediaQuery.sizeOf(context).width < kBreakpointSmall
+                              ? 10.0
+                              : 24.0,
+                          0.0,
+                        ),
+                        0.0),
                     child: Column(
                       mainAxisSize: MainAxisSize.max,
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -140,6 +153,8 @@ class _NpsWidgetState extends State<NpsWidget> {
                                   builder: (context) => FlutterFlowIconButton(
                                     borderRadius: 30.0,
                                     buttonSize: 60.0,
+                                    fillColor: FlutterFlowTheme.of(context)
+                                        .primaryBackground,
                                     icon: Icon(
                                       Icons.star_border,
                                       color: valueOrDefault(
@@ -366,6 +381,11 @@ class _NpsWidgetState extends State<NpsWidget> {
                                       rating: _model.rating1,
                                       ratinDes: _model.ratingDescription,
                                     ));
+
+                                await currentUserReference!
+                                    .update(createUsersRecordData(
+                                  npsCompleted: true,
+                                ));
 
                                 context.pushNamed(GoldenPathWidget.routeName);
                               },

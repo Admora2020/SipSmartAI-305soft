@@ -23,8 +23,6 @@ void main() async {
 
   setUpAll(() async {
     await initFirebase();
-
-    await FlutterFlowTheme.initialize();
   });
 
   setUp(() async {
@@ -32,6 +30,44 @@ void main() async {
     FFAppState.reset();
     final appState = FFAppState();
     await appState.initializePersistedState();
+  });
+
+  testWidgets('US4 Golden Path', (WidgetTester tester) async {
+    _overrideOnError();
+
+    await tester.pumpWidget(ChangeNotifierProvider(
+      create: (context) => FFAppState(),
+      child: const MyApp(),
+    ));
+    await GoogleFonts.pendingFonts();
+
+    await tester.tap(find.byKey(const ValueKey('Button_o6l2')));
+    await tester.enterText(find.byKey(const ValueKey('Login-Email_tizn')),
+        'adrmora2020@gmail.com');
+    await tester.enterText(
+        find.byKey(const ValueKey('Login-Password_38jn')), 'Adrian2005');
+    await tester.tap(find.byKey(const ValueKey('Login-Button_wyzq')));
+    await tester.pumpAndSettle(const Duration(milliseconds: 2));
+    expect(find.byKey(const ValueKey('addDrinkButton_pvbj')), findsWidgets);
+  });
+
+  testWidgets('US3 Backend Management Test', (WidgetTester tester) async {
+    _overrideOnError();
+
+    await tester.pumpWidget(ChangeNotifierProvider(
+      create: (context) => FFAppState(),
+      child: const MyApp(),
+    ));
+    await GoogleFonts.pendingFonts();
+
+    await tester.tap(find.byKey(const ValueKey('UNDEFINED')));
+    await tester.pumpAndSettle(const Duration(milliseconds: 3000));
+    await tester.enterText(
+        find.byKey(const ValueKey('ProfileEditing_n1x2')), 'Robert Smith');
+    await tester.pumpAndSettle(const Duration(milliseconds: 3000));
+    await tester.tap(find.byKey(const ValueKey('UNDEFINED')));
+    await tester.pumpAndSettle(const Duration(milliseconds: 3000));
+    expect(find.text('Robert Smith'), findsWidgets);
   });
 
   testWidgets('US2 Login', (WidgetTester tester) async {
@@ -45,7 +81,7 @@ void main() async {
     ));
     await GoogleFonts.pendingFonts();
 
-    await tester.tap(find.byKey(const ValueKey('Button_cokq')));
+    await tester.tap(find.byKey(const ValueKey('UNDEFINED')));
     await tester.pumpAndSettle(const Duration(milliseconds: 3000));
     await tester.enterText(
         find.byKey(const ValueKey('Login-Email_tizn')), 'kyle_mard@uri.edu');

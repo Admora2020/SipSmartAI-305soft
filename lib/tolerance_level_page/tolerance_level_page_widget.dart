@@ -5,6 +5,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/index.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'tolerance_level_page_model.dart';
 export 'tolerance_level_page_model.dart';
@@ -30,6 +31,14 @@ class _ToleranceLevelPageWidgetState extends State<ToleranceLevelPageWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => ToleranceLevelPageModel());
+
+    // On page load action.
+    SchedulerBinding.instance.addPostFrameCallback((_) async {
+      await currentUserReference!.update(createUsersRecordData(
+        bacLimit: '.08',
+        volumeLimit: '100',
+      ));
+    });
 
     WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
@@ -58,7 +67,7 @@ class _ToleranceLevelPageWidgetState extends State<ToleranceLevelPageWidget> {
               maxWidth: 400.0,
             ),
             decoration: BoxDecoration(
-              color: Colors.white,
+              color: FlutterFlowTheme.of(context).secondary,
             ),
             child: Padding(
               padding: EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 24.0),
@@ -114,7 +123,7 @@ class _ToleranceLevelPageWidgetState extends State<ToleranceLevelPageWidget> {
                                 activeColor:
                                     FlutterFlowTheme.of(context).primary,
                                 inactiveColor:
-                                    FlutterFlowTheme.of(context).alternate,
+                                    FlutterFlowTheme.of(context).secondary,
                                 min: 1.0,
                                 max: 5.0,
                                 value: _model.sliderValue ??= 1.0,
