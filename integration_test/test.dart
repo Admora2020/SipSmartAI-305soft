@@ -43,7 +43,7 @@ void main() async {
     ));
     await GoogleFonts.pendingFonts();
 
-    await tester.tap(find.byKey(const ValueKey('Button_o6l2')));
+    await tester.tap(find.byKey(const ValueKey('Text_rb6x')));
     await tester.enterText(find.byKey(const ValueKey('Login-Email_tizn')),
         'adrmora2020@gmail.com');
     await tester.enterText(

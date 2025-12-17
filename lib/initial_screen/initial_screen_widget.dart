@@ -114,7 +114,6 @@ class _InitialScreenWidgetState extends State<InitialScreenWidget> {
                               Align(
                                 alignment: AlignmentDirectional(0.0, -1.0),
                                 child: FFButtonWidget(
-                                  key: ValueKey('Button_o6l2'),
                                   onPressed: () async {
                                     context.pushNamed(
                                         CreateAccountWidget.routeName);
@@ -196,6 +195,7 @@ class _InitialScreenWidgetState extends State<InitialScreenWidget> {
                                           .pushNamed(LoginPageWidget.routeName);
                                     },
                                     child: Text(
+                                      key: ValueKey('Text_rb6x'),
                                       'Login',
                                       style: FlutterFlowTheme.of(context)
                                           .bodyMedium
