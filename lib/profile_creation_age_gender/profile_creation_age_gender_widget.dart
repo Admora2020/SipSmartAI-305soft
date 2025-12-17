@@ -80,7 +80,6 @@ class _ProfileCreationAgeGenderWidgetState
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
                           Text(
-                            key: ValueKey('Text_fusd'),
                             'What is your birthday?',
                             textAlign: TextAlign.center,
                             style: FlutterFlowTheme.of(context)

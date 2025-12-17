@@ -5,6 +5,7 @@ import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'time_since_last_drink_model.dart';
 export 'time_since_last_drink_model.dart';
 
@@ -46,7 +47,7 @@ class _TimeSinceLastDrinkWidgetState extends State<TimeSinceLastDrinkWidget> {
         _model.timerText = '00:00:00';
         safeSetState(() {});
       } else {
-        while (_model.loopCount != null) {
+        while (FFAppState().currentBAC >= 0.0) {
           _model.timerText = functions.timeSinceLastDrinkFormatted(
               valueOrDefault(currentUserDocument?.lastDrinkTimestampMs, 0))!;
           safeSetState(() {});
@@ -71,6 +72,8 @@ class _TimeSinceLastDrinkWidgetState extends State<TimeSinceLastDrinkWidget> {
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return Align(
       alignment: AlignmentDirectional(0.0, 0.0),
       child: Material(
